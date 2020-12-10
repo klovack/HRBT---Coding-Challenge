@@ -6,6 +6,7 @@ import { printAnswer1, printAnswer2, printAnswer345 } from './util/answers';
 import { EGraphqlDurationsMethod } from "./types/graphqlDurations";
 import { parseRawOperation } from "./util/parseRawOperation";
 import { appendOperationTypeGroup, appendOperation } from "./util/appendOperations";
+import { createGraphqlDurationSQL } from "./util/createGraphqlDurationSQL";
 
 async function main() {
   const fileStream = fs.createReadStream(path.join(__dirname, "../logs.log"));
@@ -33,6 +34,9 @@ async function main() {
   printAnswer345(opTypeGroup, opGroup, EGraphqlDurationsMethod.AVG);
   printAnswer345(opTypeGroup, opGroup, EGraphqlDurationsMethod.MAX);
   printAnswer345(opTypeGroup, opGroup, EGraphqlDurationsMethod.MIN);
+
+
+  createGraphqlDurationSQL(opGroup);
 }
 
 main();

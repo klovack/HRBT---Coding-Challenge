@@ -26,6 +26,7 @@ const answers_1 = require("./util/answers");
 const graphqlDurations_1 = require("./types/graphqlDurations");
 const parseRawOperation_1 = require("./util/parseRawOperation");
 const appendOperations_1 = require("./util/appendOperations");
+const createGraphqlDurationSQL_1 = require("./util/createGraphqlDurationSQL");
 function main() {
     var e_1, _a;
     return __awaiter(this, void 0, void 0, function* () {
@@ -59,6 +60,7 @@ function main() {
         answers_1.printAnswer345(opTypeGroup, opGroup, graphqlDurations_1.EGraphqlDurationsMethod.AVG);
         answers_1.printAnswer345(opTypeGroup, opGroup, graphqlDurations_1.EGraphqlDurationsMethod.MAX);
         answers_1.printAnswer345(opTypeGroup, opGroup, graphqlDurations_1.EGraphqlDurationsMethod.MIN);
+        createGraphqlDurationSQL_1.createGraphqlDurationSQL(opGroup);
     });
 }
 main();

@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.appendOperation = exports.appendOperationTypeGroup = void 0;
 const calculateMinMaxAvg_1 = require("./calculateMinMaxAvg");
-function appendOperationTypeGroup(opTypeGroup, rawOperation) {
-    let operationTypeGroup = opTypeGroup;
+function appendOperationTypeGroup(operationType, rawOperation) {
+    let operationTypeGroup = operationType;
     if (!operationTypeGroup) {
         operationTypeGroup = {
             numberPerformed: 0,
@@ -30,10 +30,10 @@ function appendOperationTypeGroup(opTypeGroup, rawOperation) {
     return operationTypeGroup;
 }
 exports.appendOperationTypeGroup = appendOperationTypeGroup;
-function appendOperation(opGroup, rawOperation) {
-    let operation = opGroup;
-    if (!operation) {
-        operation = {
+function appendOperation(operation, rawOperation) {
+    let result = operation;
+    if (!result) {
+        result = {
             numberPerform: 0,
             operationType: rawOperation.operationType,
             durations: {
@@ -41,9 +41,9 @@ function appendOperation(opGroup, rawOperation) {
             }
         };
     }
-    operation.numberPerform += 1;
-    operation.durations.total += rawOperation.duration;
-    operation.durations = calculateMinMaxAvg_1.calculateMinMaxAvg(operation.durations, operation.numberPerform, rawOperation);
-    return operation;
+    result.numberPerform += 1;
+    result.durations.total += rawOperation.duration;
+    result.durations = calculateMinMaxAvg_1.calculateMinMaxAvg(result.durations, result.numberPerform, rawOperation);
+    return result;
 }
 exports.appendOperation = appendOperation;
